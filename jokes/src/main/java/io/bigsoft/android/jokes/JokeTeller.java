@@ -4,7 +4,7 @@ import java.util.Random;
 
 public class JokeTeller {
 
-    String[] jokes = {"What is fast, loud and crunchy? A rocket chip!",
+    private static String[] jokes = {"What is fast, loud and crunchy? A rocket chip!",
             "Why did the teddy bear say no to dessert? Because she was stuffed.",
             "What has ears but cannot hear? A cornfield.",
             "What did the left eye say to the right eye? Between us, something smells!",
@@ -103,9 +103,9 @@ public class JokeTeller {
             "What did one toilet say to the other You look flushed.",
             "Why did the man put his money in the freezer He wanted cold hard cash!"};
 
-    Random random = new Random();
+    static Random random = new Random();
 
-    public String getJoke(){
+    public static String getJoke(){
         return jokes[random.nextInt(jokes.length)];
     }
 }
