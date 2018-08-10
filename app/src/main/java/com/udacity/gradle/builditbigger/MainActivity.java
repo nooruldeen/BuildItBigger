@@ -1,23 +1,28 @@
 package com.udacity.gradle.builditbigger;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Toast;
+import android.widget.ProgressBar;
 
+import io.bigsoft.android.display.JokeActivity;
 import io.bigsoft.android.jokes.JokeTeller;
 
 
 public class MainActivity extends AppCompatActivity {
 
     JokeTeller mJokeTeller;
+    ProgressBar mProgressBar;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         mJokeTeller = new JokeTeller();
+        mProgressBar = findViewById(R.id.pb_loading_joke);
     }
 
 
@@ -44,7 +49,13 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void tellJoke(View view) {
-        Toast.makeText(this, mJokeTeller.getJoke(), Toast.LENGTH_SHORT).show();
+        displayJoke(mJokeTeller.getJoke());
+    }
+
+    public void displayJoke(String joke){
+        Intent intent = new Intent(this, JokeActivity.class);
+        intent.putExtra(JokeActivity.EXT_KEY, joke);
+        startActivity(intent);
     }
 
 
