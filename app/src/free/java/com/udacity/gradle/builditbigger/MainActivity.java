@@ -30,7 +30,6 @@ import io.bigsoft.android.jokes.JokeTeller;
 
 public class MainActivity extends AppCompatActivity {
 
-    JokeTeller mJokeTeller;
     ProgressBar mProgressBar;
 
     // The Idling Resource which will be null in production.
@@ -41,7 +40,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        mJokeTeller = new JokeTeller();
         mProgressBar = findViewById(R.id.pb_loading_joke);
     }
 
