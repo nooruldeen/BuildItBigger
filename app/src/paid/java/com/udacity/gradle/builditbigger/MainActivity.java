@@ -31,6 +31,7 @@ import io.bigsoft.android.jokes.JokeTeller;
 public class MainActivity extends AppCompatActivity {
 
     ProgressBar mProgressBar;
+    public static String ERROR_MESSAGE = "Error: This is not funny!";
 
     // The Idling Resource which will be null in production.
     @Nullable
@@ -104,7 +105,7 @@ public class MainActivity extends AppCompatActivity {
             try {
                 return myApiService.getJoke(name).execute().getData();
             } catch (IOException e) {
-                return e.getMessage();
+                return ERROR_MESSAGE; // Return a static error text instead of e.getMessage();
             }
         }
         @Override

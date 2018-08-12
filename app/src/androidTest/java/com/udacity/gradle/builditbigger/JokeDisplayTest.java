@@ -67,7 +67,7 @@ public class JokeDisplayTest {
 
         intended(hasComponent(JokeActivity.class.getName()));
 
-        onView(withId(R.id.tv_joke)).check(matches(not(withText(STRING_TO_BE_ASSERTED))));
+        onView(withId(R.id.tv_joke)).check(matches(not(withText(MainActivity.ERROR_MESSAGE))));
 
     }
 
